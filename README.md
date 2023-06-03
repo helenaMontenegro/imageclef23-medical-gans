@@ -1,12 +1,12 @@
 # Evaluating Privacy on Synthetic Images Generated using GANs: Contributions of the VCMI Team to ImageCLEFmedical GANs 2023
 
-This is the official repository for the [VCMI](https://vcmi.inesctec.pt/)'s Team submission to [ImageClefmedical GANs 2023](https://www.imageclef.org/2023/medical/gans).
+This is the official repository for the [VCMI](https://vcmi.inesctec.pt/)'s team submission to [ImageCLEFmedical GANs 2023](https://www.imageclef.org/2023/medical/gans).
 
 **Task Goal**: Evaluate whether synthetic medical images generated using deep generative models have identifiable properties of the training data, threatening its privacy.
 
 **Task Description**: Given a set of real images and a set of synthetic images generated using a generative adversarial network (GAN), classify the real images according to whether they were used in the training of the GAN.
 
-**Proposed Methods**: We proposed three types of methods:
+**Proposed Methods**: 
 * Similarity-based methods, which measure the similarity between real and generated images and use it to classify the real images.
 * Autoencoder-based methods, which use autoencoders to classify the real images.
 * Patch-based methods, which extract patches from images and use them for classification.
@@ -119,8 +119,8 @@ Name | Type | Default | Description
 --gen_dir | string | generated_1 | Path to the directory that contains the generated images
 --real_dir | string | real_unknown_1 | Path to the directory that contains the real images
 --latent_dim | int | 128 | Dimensions of the latent representations of the autoencoder
---batch_size | int | 32 | Batch size during training
---epochs | int | 200 | Number of epochs to train the network
+--batch_size | int | 16 | Batch size during training
+--epochs | int | 800 | Number of epochs to train the network
 --save_file | string | weights.hdf5 | Path to the file  where the model weights are/will be saved
 --infer | bool | False | Loads model weights and generates submission file
 --submission_file | string | submission.csv | Name of the file where the results of the selected method will be saved
