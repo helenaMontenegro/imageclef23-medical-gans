@@ -239,6 +239,15 @@ eval_set["pred"] = pred
 evaluation_df = pd.DataFrame(data=eval_set)
 evaluation_df.to_csv(submission_file, sep=',', index=False, header=False)
 
+def build_matrix(feat_1, feat_2, same_feat=False):
+  matrix = np.zeros((len(feat_1), len(feat_2)))
+  for i in tqdm(range(len(feat_1))):
+    for j in range(len(feat_2)):
+      matrix[i][j] = mean_squared_error(feat_1[i], feat_2[j])
+    if same_feat:
+      matrix[i][i] = np.average(matrix[i])
+  return matrix
+
 # generate similarity matrix
 if generate_matrix:
     gen_real_matrix = 1 - build_matrix(gen_features, real_features)

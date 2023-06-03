@@ -181,6 +181,15 @@ if not infer:
 else:
     model.load_weights(weights_file)
 
+def build_matrix(feat_1, feat_2, same_feat=False):
+  matrix = np.zeros((len(feat_1), len(feat_2)))
+  for i in tqdm(range(len(feat_1))):
+    for j in range(len(feat_2)):
+      matrix[i][j] = mean_squared_error(feat_1[i], feat_2[j])
+    if same_feat:
+      matrix[i][i] = np.average(matrix[i])
+  return matrix
+
 gen_real_matrix = 1 - build_matrix(gen_features, real_features)
 real_matrix = 1 - build_matrix(real_features, real_features, same_feat=True)
 gen_matrix = 1 - build_matrix(gen_features, gen_features, same_feat=True)
