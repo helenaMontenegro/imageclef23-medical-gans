@@ -19,6 +19,7 @@ parser.add_argument('--weights_file', type=str, default='weights.h5', help="Name
 parser.add_argument('--infer', action='store_true', help="Load model weights and generate submission file.")
 parser.add_argument('--submission_file', type=str, default='submission.csv', help="Filename for the submission file.")
 parser.add_argument('--generate_matrix', action='store_true', help="Generate similarity matrix to apply similarity-based methods.")
+parser.add_argument('--matrix_file', type=str, default='ssim_matrices.hdf5', help="Filename where the SSIM matrices will be stored.")
 args = parser.parse_args()
 
 generated_folder = args.gen_dir
@@ -31,6 +32,7 @@ infer = args.infer
 submission_file = args.submission_file
 architecture = args.architecture
 generate_matrix = args.generate_matrix
+matrix_file = args.matrix_file
 
 # load data
 
@@ -256,7 +258,7 @@ if generate_matrix:
     print('Minimum similarity: ' + str(np.amin(gen_matrix)))
     print('Maximum similarity: ' + str(np.amax(gen_matrix)))
 
-    hf = h5py.File(save_file, 'w')  # open the file in append mode
+    hf = h5py.File(matrix_file, 'w')  # open the file in append mode
 
     hf.create_dataset('gen_real_matrix', data=gen_real_matrix)
     hf.create_dataset('real_matrix', data=real_matrix)
