@@ -6,7 +6,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--gen_dir', type=str, default='generated_1', help="Directory of the generated data.")
 parser.add_argument('--real_dir', type=str, default='real_unknown_1', help="Directory of the real data.")
-parser.add_argument('--save_file', type=str, default='ssim_matrices.hdf5', help="Filename where the SSIM matrices will be stored.")
+parser.add_argument('--save_file', type=str, default='ssim_matrices.hdf5', help="Filename where the resnet matrices will be stored.")
 args = parser.parse_args()
 
 generated_folder = args.gen_dir

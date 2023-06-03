@@ -7,7 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--infer', action='store_true', help="Generate submission file.")
 parser.add_argument('--method', type=str, default='all', help="Method to apply: threshold_max, threshold_avg, retrieval, ranking, clustering or ensemble.")
 parser.add_argument('--matrix_file', type=str, default='ssim_matrices.hdf5', help="File that holds the similarity matrices.")
-parser.add_argument('--submission_file', type=str, default='submission.csv', help="File that holds the similarity matrices.")
+parser.add_argument('--submission_file', type=str, default='submission.csv', help="File where the results will be saved.")
 parser.add_argument('--real_dir', type=str, default='real_unknown_1', help="Directory of the real data required on inference.")
 args = parser.parse_args()
 
