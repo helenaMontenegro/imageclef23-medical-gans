@@ -19,7 +19,7 @@ parser.add_argument('--weights_file', type=str, default='weights.h5', help="Name
 parser.add_argument('--infer', action='store_true', help="Load model weights and generate submission file.")
 parser.add_argument('--submission_file', type=str, default='submission.csv', help="Filename for the submission file.")
 parser.add_argument('--generate_matrix', action='store_true', help="Generate similarity matrix to apply similarity-based methods.")
-parser.add_argument('--matrix_file', type=str, default='ssim_matrices.hdf5', help="Filename where the SSIM matrices will be stored.")
+parser.add_argument('--matrix_file', type=str, default='sim_matrices.hdf5', help="Filename where the SSIM matrices will be stored.")
 args = parser.parse_args()
 
 generated_folder = args.gen_dir
